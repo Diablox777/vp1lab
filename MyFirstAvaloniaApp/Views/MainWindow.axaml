@@ -8,13 +8,13 @@
 		Height="500" Width="500"
         x:Class="MyFirstAvaloniaApp.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="CalculatorSibSUTIS">
+        Title="CalculatorTetyakov">
 
     
   
   <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="50,*,*,*">
     <TextBox Text="{Binding MainText}" IsUndoEnabled="False" Focusable="False" Height="50" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Row="0" FontSize="33"></TextBox>
-    <Button Command="{ Binding Clear}"  Content="Clear" Grid.Column="4" Grid.Row="0" FontSize="33" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+    <Button Command="{ Binding Clear}"  Content="Delete" Grid.Column="4" Grid.Row="0" FontSize="33" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
     <Button Command="{ Binding WriteChar}" CommandParameter="I" Content="I" Grid.Column="0" Grid.Row="1" FontSize="33" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
     <Button Command="{ Binding WriteChar}" CommandParameter="V" Content="V" Grid.Column="1" Grid.Row="1" FontSize="33" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
     <Button Command="{ Binding WriteChar}" CommandParameter="X" Content="X" Grid.Column="2" Grid.Row="1" FontSize="33" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>

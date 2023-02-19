@@ -15,34 +15,34 @@ namespace MyFirstAvaloniaApp.Models
 
         private string calcRomanValue(ushort n)
         {
-            char[] symb1 = new char[] { 'M', 'D', 'C', 'L', 'X', 'V' };
+            char[] symb = new char[] { 'M', 'D', 'C', 'L', 'X', 'V' };
             char[] symb2 = new char[] { 'C', 'X', 'I' };
-            string result = "";
-            for (int i = 0; i < n / 1000; ++i) result += 'M';
+            string res = "";
+            for (int i = 0; i < n / 1000; ++i) res += 'M';
             int t = n % 1000;
             for (int i = 100, k = 0; i > 0; i /= 10, ++k)
             {
                 int x = t / i;
-                if (x == 9) result = result + symb2[k] + symb1[k * 2];
+                if (x == 9) res = res + symb2[k] + symb[k * 2];
                 else if (x >= 5)
                 {
-                    result += symb1[1 + k * 2];
-                    for (int j = 0; j < x - 5; ++j) result += symb2[k];
+                    res += symb[1 + k * 2];
+                    for (int j = 0; j < x - 5; ++j) res += symb2[k];
                 }
                 else
                 {
-                    if (x == 4) result = result + symb2[k] + symb1[1 + k * 2];
+                    if (x == 4) res = res + symb2[k] + symb[1 + k * 2];
                     else
                     {
-                        for (int j = 0; j < x; ++j) result += symb2[k];
+                        for (int j = 0; j < x; ++j) res += symb2[k];
                     }
                 }
                 t = t % i;
             }
-            return result;
+            return res;
         }
 
-        
+        //Конструктор получает представление числа n в римской записи
         public RomanNumber(ushort n)
         {
             if (!(n > 0)) throw new RomanNumberException();
@@ -56,27 +56,27 @@ namespace MyFirstAvaloniaApp.Models
             return new RomanNumber((ushort)(n1.value + n2.value));
         }
 
-        
+        //Вычитание римских чисел
         public static RomanNumber operator -(RomanNumber? n1, RomanNumber? n2)
         {
             if (n1 == null || n2 == null) throw new ArgumentNullException();
             if (n1.value <= n2.value) throw new RomanNumberException();
             return new RomanNumber((ushort)(n1.value - n2.value));
         }
-        
+        //Умножение римских чисел
         public static RomanNumber operator *(RomanNumber? n1, RomanNumber? n2)
         {
             if (n1 == null || n2 == null) throw new ArgumentNullException();
             return new RomanNumber((ushort)(n1.value * n2.value));
         }
-        
+        //Целочисленное деление римских чисел
         public static RomanNumber operator /(RomanNumber? n1, RomanNumber? n2)
         {
             if (n1 == null || n2 == null) throw new ArgumentNullException();
             if (n2.value == 0 || ((ushort)(n1.value / n2.value)) == 0) throw new RomanNumberException();
             return new RomanNumber((ushort)(n1.value / n2.value));
         }
-        
+        //Возвращает строковое представление римского числа
         public override string ToString()
         {
             return romanVal;

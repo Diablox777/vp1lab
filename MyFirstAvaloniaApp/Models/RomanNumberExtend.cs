@@ -9,7 +9,7 @@ namespace MyFirstAvaloniaApp.Models
     public class RomanNumberExtend : RomanNumber
     {
 
-        static private ushort getNumber1(string str)
+        static private ushort getNumber(string str)
         {
             if(str == null) throw new ArgumentNullException();
             ushort res = 0;
@@ -46,7 +46,7 @@ namespace MyFirstAvaloniaApp.Models
             return res;
         }
         public RomanNumberExtend(ushort n) : base(n) { }
-        public RomanNumberExtend(string str) : base(getNumber1(str))
+        public RomanNumberExtend(string str) : base(getNumber(str))
         {
         }
     }

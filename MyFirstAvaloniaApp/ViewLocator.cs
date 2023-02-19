@@ -9,16 +9,16 @@ namespace MyFirstAvaloniaApp
     {
         public IControl Build(object data)
         {
-            var name = data.GetType().FullName!.Replace("ViewModel", "View");
-            var type = Type.GetType(name);
+            var names = data.GetType().FullName!.Replace("ViewModel", "View");
+            var types = Type.GetType(names);
 
-            if (type != null)
+            if (types != null)
             {
-                return (Control)Activator.CreateInstance(type)!;
+                return (Control)Activator.CreateInstance(types)!;
             }
             else
             {
-                return new TextBlock { Text = "Not Found: " + name };
+                return new TextBlock { Text = "Not Found: " + names };
             }
         }
 

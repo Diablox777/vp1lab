@@ -8,13 +8,13 @@ namespace MyFirstAvaloniaApp.Views
     {
         public MainWindow()
         {
-            InitializeComponent1();
+            InitializeComponent();
 #if DEBUG
             this.AttachDevTools();
 #endif
         }
 
-        private void InitializeComponent1()
+        private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
         }

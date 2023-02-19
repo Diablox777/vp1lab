@@ -17,6 +17,16 @@ namespace MyFirstAvaloniaApp.ViewModels
         RomanNumberExtend n1;
         bool _error;
 
+        public void Set_text(string x)
+        {
+            _mainText = x;
+        }
+
+        public string Get_text()
+        {
+            return _mainText;
+        }
+
         private bool Error
         {
             get => _error;
